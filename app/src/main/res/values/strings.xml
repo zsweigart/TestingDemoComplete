@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Testing Demo Complete</string>
+    
+    <!-- Login -->
+    <string name="login_prompt_email">Email</string>
+    <string name="login_prompt_password">Password</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_register_short">Register</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="login_invalid_username_or_password">Sorry we couldn\'t find that username and password combination. Please check your credentials and try again.</string>
+
+    <!-- Registration -->
+    <string name="title_activity_registration">RegistrationActivity</string>
+    <string name="register_header">Register for a new account</string>
+    <string name="register_prompt_email">@string/login_prompt_email</string>
+    <string name="register_prompt_password">@string/login_prompt_password</string>
+    <string name="register_prompt_first_name">First name</string>
+    <string name="register_prompt_last_name">Last name</string>
+    <string name="register_prompt_age">Age</string>
+    <string-array name="year">
+        <item>Freshman</item>
+        <item>Sophomore</item>
+        <item>Junior</item>
+        <item>Senior</item>
+    </string-array>
+
+    <!-- GPA -->
+    <string name="title_activity_gpa">GpaActivity</string>
+
+    <!-- Dialog -->
+    <string name="oops_something_went_wrong">Oops, somthing went wrong</string>
+    <string name="option_ok">OK</string>
+</resources>

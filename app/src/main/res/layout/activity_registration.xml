@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".activity.RegistrationActivity"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/login_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/headline_leading_space"
+        android:textSize="@dimen/headline_font"
+        android:text="@string/register_header"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/register_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/body_1_font"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:hint="@string/register_prompt_email"
+        android:textColorHint="@color/theme_supplemental_gray"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/register_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:textSize="@dimen/body_1_font"
+        android:hint="@string/register_prompt_password"
+        android:textColorHint="@color/theme_supplemental_gray"
+        android:inputType="textPassword"/>
+
+    <EditText
+        android:id="@+id/register_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:textSize="@dimen/body_1_font"
+        android:hint="@string/register_prompt_first_name"
+        android:textColorHint="@color/theme_supplemental_gray"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/register_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:textSize="@dimen/body_1_font"
+        android:hint="@string/register_prompt_last_name"
+        android:textColorHint="@color/theme_supplemental_gray"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/register_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:textSize="@dimen/body_1_font"
+        android:hint="@string/register_prompt_age"
+        android:textColorHint="@color/theme_supplemental_gray"
+        android:inputType="number"/>
+
+    <Spinner
+        android:id="@+id/register_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/year"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:textSize="@dimen/body_1_font"
+        style="@android:style/Widget.DeviceDefault.Light.Spinner" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/register_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/theme_supplemental_gray"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/body_1_font"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:text="@string/action_register_short"
+        android:padding="@dimen/default_material_padding_half"
+        android:gravity="center"
+        android:enabled="false"/>
+
+</LinearLayout>
+
