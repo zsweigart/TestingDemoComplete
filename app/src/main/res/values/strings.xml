@@ -21,6 +21,7 @@
     <string name="register_prompt_first_name">First name</string>
     <string name="register_prompt_last_name">Last name</string>
     <string name="register_prompt_age">Age</string>
+    <string name="register_age_format_error">Sorry, age must be a number</string>
     <string-array name="year">
         <item>Freshman</item>
         <item>Sophomore</item>
@@ -30,6 +31,42 @@
 
     <!-- GPA -->
     <string name="title_activity_gpa">GpaActivity</string>
+    <string name="gpa_definition">
+        A 4 grade points\n
+        A- 3.67 grade points\n
+        B+ 3.33 grade points\n
+        B 3 grade points\n
+        B- 2.67 grade points\n
+        C+ 2.33 grade points\n
+        C 2 grade points\n
+        C- 1.67 grade points\n
+        D+ 1.33 grade points\n
+        D 1 grade point\n
+        D- 0.67 grade points\n
+        F 0 grade points
+    </string>
+    <string-array name="grades">
+        <item>A</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B</item>
+        <item>B-</item>
+        <item>C+</item>
+        <item>C</item>
+        <item>C-</item>
+        <item>D+</item>
+        <item>D</item>
+        <item>D-</item>
+        <item>F</item>
+    </string-array>
+    <string name="gpa_header">Calculate your GPA</string>
+    <string name="gpa_value_prefix">Your GPA is:</string>
+    <string name="gpa_value_string">Your GPA is: %.3f</string>
+    <string name="gpa_calculate">Calculate</string>
+    <string name="gpa_course_name">Course name</string>
+    <string name="gpa_hours">Hours</string>
+    <string name="gpa_grade">Grade</string>
+    <string name="gpa_add_more_courses">+ Add another course</string>
 
     <!-- Dialog -->
     <string name="oops_something_went_wrong">Oops, somthing went wrong</string>

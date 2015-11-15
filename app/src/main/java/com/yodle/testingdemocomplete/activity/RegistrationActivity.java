@@ -10,6 +10,8 @@ import android.view.View;
 import com.yodle.testingdemocomplete.MainApp;
 import com.yodle.testingdemocomplete.R;
 import com.yodle.testingdemocomplete.controller.RegistrationController;
+import com.yodle.testingdemocomplete.model.Student;
+import com.yodle.testingdemocomplete.persistence.Datastore;
 import com.yodle.testingdemocomplete.view.RegistrationView;
 
 public class RegistrationActivity extends AppCompatActivity implements RegistrationController.RegistrationActivityNavigator {
@@ -30,6 +32,20 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
         registrationView = new RegistrationView(this, rootView);
         registrationController = new RegistrationController(registrationView, this);
         registrationView.setRegistrationController(registrationController);
+    }
+
+    @Override
+    public Datastore getDatastore() {
+        return mainApp.getSharedPrefsDatastore();
+    }
+
+    @Override
+    public void closeAndLogin(Student student) {
+        Intent resultData = new Intent();
+        resultData.putExtra(LoginActivity.NEW_REGISTERED_STUDENT, student);
+
+        this.setResult(RESULT_OK, resultData);
+        finish();
     }
 
     public static Intent getBlankRegistrationIntent(Context context) {

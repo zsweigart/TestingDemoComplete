@@ -12,9 +12,11 @@ import com.yodle.testingdemocomplete.R;
 import com.yodle.testingdemocomplete.activity.RegistrationActivity;
 import com.yodle.testingdemocomplete.controller.RegistrationController;
 import com.yodle.testingdemocomplete.customviews.AfterTextChangedWatcher;
+import com.yodle.testingdemocomplete.model.Student;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class RegistrationView {
     private RegistrationActivity activity;
@@ -76,6 +78,26 @@ public class RegistrationView {
                 enableRegisterButton();
             }
         });
+    }
+
+    @OnClick(R.id.register_register)
+    public void registerStudent() {
+        registerAge.setError(null);
+
+        Student newStudent = new Student();
+        newStudent.setEmail(registerEmail.getText().toString());
+        newStudent.setPassword(registerPassword.getText().toString());
+        newStudent.setFirstName(registerFirstName.getText().toString());
+        newStudent.setLastName(registerLastName.getText().toString());
+
+        try {
+            newStudent.setAge(Integer.parseInt(registerAge.getText().toString()));
+        } catch (NumberFormatException ex) {
+            registerAge.setError(activity.getString(R.string.register_header));
+            return;
+        }
+
+        registrationController.registerNewStudent(newStudent);
     }
 
     private void enableRegisterButton() {
