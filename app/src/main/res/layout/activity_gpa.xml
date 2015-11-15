@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".activity.GpaCalculatorActivity"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/gpa_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/headline_leading_space"
+        android:textSize="@dimen/headline_font"
+        android:text="@string/gpa_header"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gpa_list"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="@dimen/body_1_leading_space"/>
+
+    <TextView
+        android:id="@+id/gpa_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:textSize="@dimen/body_1_font"
+        android:text="@string/gpa_value_prefix"
+        android:textColor="@color/theme_primary_text"
+        android:textStyle="bold"/>
+
+    <Button
+        android:id="@+id/gpa_calculate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/body_1_font"
+        android:layout_marginTop="@dimen/body_1_leading_space"
+        android:text="@string/gpa_calculate"
+        android:padding="@dimen/default_material_padding_half"
+        android:gravity="center"
+        android:enabled="true"/>
+
+</LinearLayout>
+
