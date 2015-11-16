@@ -7,7 +7,7 @@ import com.yodle.testingdemocomplete.R;
 
 public class DialogUtil {
 
-    public static void alertError(Activity activity, String message) {
+    public void alertError(Activity activity, String message) {
         if(!activity.isFinishing()) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(activity);
             dialog.setTitle(R.string.oops_something_went_wrong);

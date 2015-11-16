@@ -2,6 +2,7 @@ package com.yodle.testingdemocomplete.controller;
 
 import com.yodle.testingdemocomplete.model.Student;
 import com.yodle.testingdemocomplete.persistence.Datastore;
+import com.yodle.testingdemocomplete.testingframework.StudentGenerator;
 import com.yodle.testingdemocomplete.view.LoginView;
 
 import org.junit.Before;
@@ -20,14 +21,14 @@ public class LoginControllerTest {
     private LoginView loginView;
     private LoginController.LoginActivityNavigator loginActivityNavigator;
     private Set<Student> students;
-    private Student first;
-    private Student second;
+    private StudentGenerator studentGenerator;
 
     @Before
     public void setup() {
         loginView = mock(LoginView.class);
         loginActivityNavigator = mock(LoginController.LoginActivityNavigator.class);
-        students = getValidStudentLogins();
+        studentGenerator = new StudentGenerator();
+        students = studentGenerator.getValidStudentLogins();
 
         when(loginActivityNavigator.getDatastore()).thenReturn(new Datastore() {
             @Override
@@ -76,7 +77,7 @@ public class LoginControllerTest {
     public void attemptSignIn_whenCredentialsValid_callsOpenGpaCalculatorActivity() {
         loginController.attemptSignIn("second@second.com", "password");
 
-        verify(loginActivityNavigator).openGpaCalculatorActivity(second);
+        verify(loginActivityNavigator).openGpaCalculatorActivity(studentGenerator.second);
     }
 
     @Test
@@ -92,16 +93,5 @@ public class LoginControllerTest {
         loginController.register(email);
 
         verify(loginActivityNavigator).openRegistrationActivity(email);
-    }
-
-    private Set<Student> getValidStudentLogins() {
-        Set<Student> students = new HashSet<>();
-        first = new Student("First", "First", "first@first.com", "asdf1234", 21, Student.Year.JUNIOR);
-        second = new Student("Second", "Second", "second@second.com", "password", 19, Student.Year.FRESHMAN);
-
-        students.add(first);
-        students.add(second);
-
-        return students;
     }
 }

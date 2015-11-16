@@ -1,5 +1,7 @@
 package com.yodle.testingdemocomplete.model;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.io.Serializable;
 
 public class Student implements Serializable {
@@ -72,5 +74,9 @@ public class Student implements Serializable {
 
     public enum Year {
         FRESHMAN, SOPHOMORE, JUNIOR, SENIOR;
+    }
+
+    public boolean isValid() {
+        return !StringUtils.isEmpty(email) && !StringUtils.isEmpty(password);
     }
 }

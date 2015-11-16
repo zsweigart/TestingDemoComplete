@@ -29,13 +29,11 @@ public class GpaCalculatorActivity extends AppCompatActivity implements GpaCalcu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View rootView = inflater.inflate(R.layout.activity_gpa, null);
-        setContentView(rootView);
+
+        gpaCalculatorView = new GpaCalculatorView(this);
+        setContentView(gpaCalculatorView);
 
         mainApp = (MainApp) getApplication();
-
-        gpaCalculatorView = new GpaCalculatorView(this, rootView);
         gpaCalculatorController = new GpaCalculatorController(gpaCalculatorView, this);
         gpaCalculatorView.setGpaCalculatorController(gpaCalculatorController);
     }

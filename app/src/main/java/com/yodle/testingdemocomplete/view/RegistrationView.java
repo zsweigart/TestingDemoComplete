@@ -3,9 +3,9 @@ package com.yodle.testingdemocomplete.view;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 import com.yodle.testingdemocomplete.R;
@@ -17,9 +17,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RegistrationView {
+public class RegistrationView extends LinearLayout {
     private Context context;
-    private View view;
     private RegistrationController registrationController;
 
     @Bind(R.id.register_email)
@@ -37,11 +36,12 @@ public class RegistrationView {
     @Bind(R.id.register_register)
     Button registerButton;
 
-    public RegistrationView(Context context, View view) {
+    public RegistrationView(Context context) {
+        super(context);
         this.context = context;
-        this.view = view;
+        inflate(context, R.layout.activity_registration, this);
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this);
 
         registerEmail.addTextChangedListener(new AfterTextChangedWatcher() {
             @Override

@@ -1,13 +1,8 @@
 package com.yodle.testingdemocomplete.view;
 
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.TextView;
 
-import com.yodle.testingdemocomplete.BuildConfig;
 import com.yodle.testingdemocomplete.R;
-import com.yodle.testingdemocomplete.activity.GpaCalculatorActivity;
 import com.yodle.testingdemocomplete.adapter.GpaRecyclerAdapter;
 import com.yodle.testingdemocomplete.controller.GpaCalculatorController;
 import com.yodle.testingdemocomplete.model.Course;
@@ -17,9 +12,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
-import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.RuntimeEnvironment;
-import org.robolectric.annotation.Config;
 
 import java.util.List;
 
@@ -31,16 +24,14 @@ import static org.mockito.Mockito.when;
 
 @RunWith(CustomRobolectricRunner.class)
 public class GpaCalculatorViewTest {
-    private View view;
     private GpaCalculatorController gpaCalculatorController;
     private GpaCalculatorView gpaCalculatorView;
     private GpaRecyclerAdapter gpaRecyclerAdapter;
 
     @Before
     public void setup() {
-        view = LayoutInflater.from(RuntimeEnvironment.application).inflate(R.layout.activity_gpa, null);
         gpaCalculatorController = mock(GpaCalculatorController.class);
-        gpaCalculatorView = new GpaCalculatorView(RuntimeEnvironment.application, view);
+        gpaCalculatorView = new GpaCalculatorView(RuntimeEnvironment.application);
         gpaCalculatorView.setGpaCalculatorController(gpaCalculatorController);
 
         gpaRecyclerAdapter = gpaCalculatorView.getGpaRecyclerAdapter();
@@ -51,10 +42,10 @@ public class GpaCalculatorViewTest {
 
     @Test
     public void clickingCalculateButton_whenEnabled_callsCalculateAndUpdatesView() {
-        view.findViewById(R.id.gpa_calculate).performClick();
+        gpaCalculatorView.findViewById(R.id.gpa_calculate).performClick();
         verify(gpaCalculatorController).calculate(gpaRecyclerAdapter.getCourses());
 
-        String actualValue = ((TextView)view.findViewById(R.id.gpa_value)).getText().toString();
+        String actualValue = ((TextView)gpaCalculatorView.findViewById(R.id.gpa_value)).getText().toString();
         assertThat(actualValue, equalTo("Your GPA is: 3.500"));
     }
 }

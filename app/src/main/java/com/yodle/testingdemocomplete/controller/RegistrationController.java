@@ -1,6 +1,5 @@
 package com.yodle.testingdemocomplete.controller;
 
-import com.yodle.testingdemocomplete.activity.RegistrationActivity;
 import com.yodle.testingdemocomplete.model.Student;
 import com.yodle.testingdemocomplete.persistence.Datastore;
 import com.yodle.testingdemocomplete.view.RegistrationView;
@@ -17,8 +16,10 @@ public class RegistrationController {
     }
 
     public void registerNewStudent(Student student) {
-        datastore.persistStudent(student);
-        registrationActivityNavigator.closeAndLogin(student);
+        if(student != null && student.isValid()) {
+            datastore.persistStudent(student);
+            registrationActivityNavigator.closeAndLogin(student);
+        }
     }
 
     public interface RegistrationActivityNavigator {

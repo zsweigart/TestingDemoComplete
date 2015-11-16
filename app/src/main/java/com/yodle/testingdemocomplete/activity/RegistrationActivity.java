@@ -4,11 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
-import android.view.View;
 
 import com.yodle.testingdemocomplete.MainApp;
-import com.yodle.testingdemocomplete.R;
 import com.yodle.testingdemocomplete.controller.RegistrationController;
 import com.yodle.testingdemocomplete.model.Student;
 import com.yodle.testingdemocomplete.persistence.Datastore;
@@ -23,13 +20,11 @@ public class RegistrationActivity extends AppCompatActivity implements Registrat
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        LayoutInflater inflater = LayoutInflater.from(this);
-        View rootView = inflater.inflate(R.layout.activity_registration, null);
-        setContentView(rootView);
+        registrationView = new RegistrationView(this);
+        setContentView(registrationView);
 
         mainApp = (MainApp) getApplication();
 
-        registrationView = new RegistrationView(this, rootView);
         registrationController = new RegistrationController(registrationView, this);
         registrationView.setRegistrationController(registrationController);
     }

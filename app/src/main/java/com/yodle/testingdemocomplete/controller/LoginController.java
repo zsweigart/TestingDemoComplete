@@ -45,9 +45,4 @@ public class LoginController {
         void openGpaCalculatorActivity(Student student);
         Datastore getDatastore();
     }
-
-    @VisibleForTesting
-    Datastore getDatastore() {
-        return datastore;
-    }
 }

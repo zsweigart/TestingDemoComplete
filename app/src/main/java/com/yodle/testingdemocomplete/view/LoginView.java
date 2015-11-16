@@ -2,10 +2,12 @@ package com.yodle.testingdemocomplete.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import com.yodle.testingdemocomplete.R;
 import com.yodle.testingdemocomplete.controller.LoginController;
@@ -15,11 +17,12 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class LoginView {
+public class LoginView extends LinearLayout {
     private Activity activity;
     private Context context;
     private View view;
     private LoginController loginController;
+    private DialogUtil dialogUtil;
 
     @Bind(R.id.login_email)
     EditText loginEmail;
@@ -30,12 +33,14 @@ public class LoginView {
     @Bind(R.id.login_register)
     Button loginRegisterButton;
 
-    public LoginView(Context context, Activity activity, View view) {
+    public LoginView(Context context, Activity activity) {
+        super(context);
         this.context = context;
-        this.view = view;
+        inflate(context, R.layout.activity_login, this);
         this.activity = activity;
+        this.dialogUtil = new DialogUtil();
 
-        ButterKnife.bind(this, view);
+        ButterKnife.bind(this);
     }
 
     @OnClick(R.id.login_sign_in)
@@ -58,6 +63,11 @@ public class LoginView {
     }
 
     public void showSignInInvalidEmailOrPassword() {
-        DialogUtil.alertError(activity, context.getString(R.string.login_invalid_username_or_password));
+        dialogUtil.alertError(activity, context.getString(R.string.login_invalid_username_or_password));
+    }
+
+    @VisibleForTesting
+    void setDialogUtil(DialogUtil dialogUtil) {
+        this.dialogUtil = dialogUtil;
     }
 }
