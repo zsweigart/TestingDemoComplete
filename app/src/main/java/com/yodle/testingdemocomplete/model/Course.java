@@ -8,6 +8,12 @@ public class Course {
     public Course() {
     }
 
+    public Course(String courseName, int numCredits, GRADE grade) {
+        this.courseName = courseName;
+        this.numCredits = numCredits;
+        this.grade = grade;
+    }
+
     public String getCourseName() {
         return courseName;
     }

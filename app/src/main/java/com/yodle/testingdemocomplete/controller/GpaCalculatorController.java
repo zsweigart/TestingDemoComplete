@@ -27,7 +27,7 @@ public class GpaCalculatorController {
             }
         }
 
-        return gpa/numCourseHours;
+        return numCourseHours == 0 ? 0 : gpa/numCourseHours;
     }
 
     public interface GpaCalculatorActivityNavigator {
