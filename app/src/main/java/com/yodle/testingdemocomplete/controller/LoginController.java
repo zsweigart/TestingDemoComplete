@@ -1,5 +1,7 @@
 package com.yodle.testingdemocomplete.controller;
 
+import android.support.annotation.VisibleForTesting;
+
 import com.yodle.testingdemocomplete.model.Student;
 import com.yodle.testingdemocomplete.persistence.Datastore;
 import com.yodle.testingdemocomplete.view.LoginView;
@@ -42,5 +44,10 @@ public class LoginController {
         void openRegistrationActivity(String email);
         void openGpaCalculatorActivity(Student student);
         Datastore getDatastore();
+    }
+
+    @VisibleForTesting
+    Datastore getDatastore() {
+        return datastore;
     }
 }
