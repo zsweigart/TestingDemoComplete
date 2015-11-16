@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.yodle.testingdemocomplete.R;
 import com.yodle.testingdemocomplete.model.Course;
-import com.yodle.testingdemocomplete.view.AddMoreViewHolder;
-import com.yodle.testingdemocomplete.view.CourseViewHolder;
+import com.yodle.testingdemocomplete.customviews.AddMoreViewHolder;
+import com.yodle.testingdemocomplete.customviews.CourseViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

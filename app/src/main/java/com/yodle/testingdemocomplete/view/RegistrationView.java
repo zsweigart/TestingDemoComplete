@@ -1,15 +1,14 @@
 package com.yodle.testingdemocomplete.view;
 
+import android.content.Context;
 import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.yodle.testingdemocomplete.R;
-import com.yodle.testingdemocomplete.activity.RegistrationActivity;
 import com.yodle.testingdemocomplete.controller.RegistrationController;
 import com.yodle.testingdemocomplete.customviews.AfterTextChangedWatcher;
 import com.yodle.testingdemocomplete.model.Student;
@@ -19,7 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class RegistrationView {
-    private RegistrationActivity activity;
+    private Context context;
     private View view;
     private RegistrationController registrationController;
 
@@ -38,8 +37,8 @@ public class RegistrationView {
     @Bind(R.id.register_register)
     Button registerButton;
 
-    public RegistrationView(RegistrationActivity activity, View view) {
-        this.activity = activity;
+    public RegistrationView(Context context, View view) {
+        this.context = context;
         this.view = view;
 
         ButterKnife.bind(this, view);
@@ -93,7 +92,7 @@ public class RegistrationView {
         try {
             newStudent.setAge(Integer.parseInt(registerAge.getText().toString()));
         } catch (NumberFormatException ex) {
-            registerAge.setError(activity.getString(R.string.register_header));
+            registerAge.setError(context.getString(R.string.register_header));
             return;
         }
 
@@ -105,10 +104,10 @@ public class RegistrationView {
                 && !TextUtils.isEmpty(registerFirstName.getText()) && !TextUtils.isEmpty(registerLastName.getText())
                 && !TextUtils.isEmpty(registerAge.getText())) {
             registerButton.setEnabled(true);
-            registerButton.setBackgroundColor(activity.getResources().getColor(R.color.colorAccent));
+            registerButton.setBackgroundColor(context.getResources().getColor(R.color.colorAccent));
         } else {
             registerButton.setEnabled(false);
-            registerButton.setBackgroundColor(activity.getResources().getColor(R.color.theme_supplemental_gray));
+            registerButton.setBackgroundColor(context.getResources().getColor(R.color.theme_supplemental_gray));
         }
     }
 

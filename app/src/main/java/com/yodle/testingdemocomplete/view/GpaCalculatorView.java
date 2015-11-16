@@ -1,5 +1,7 @@
 package com.yodle.testingdemocomplete.view;
 
+import android.content.Context;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -7,7 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.yodle.testingdemocomplete.R;
-import com.yodle.testingdemocomplete.activity.GpaCalculatorActivity;
 import com.yodle.testingdemocomplete.adapter.GpaRecyclerAdapter;
 import com.yodle.testingdemocomplete.controller.GpaCalculatorController;
 
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class GpaCalculatorView {
-    private GpaCalculatorActivity activity;
+    private Context context;
     private View view;
     private GpaCalculatorController gpaCalculatorController;
     private GpaRecyclerAdapter gpaRecyclerAdapter;
@@ -30,14 +31,14 @@ public class GpaCalculatorView {
     @Bind(R.id.gpa_calculate)
     Button calculate;
 
-    public GpaCalculatorView(GpaCalculatorActivity activity, View view) {
-        this.activity = activity;
+    public GpaCalculatorView(Context context, View view) {
+        this.context = context;
         this.view = view;
 
         ButterKnife.bind(this, view);
-        gpaRecyclerAdapter = new GpaRecyclerAdapter(activity);
+        gpaRecyclerAdapter = new GpaRecyclerAdapter(context);
         gpaCourseList.setAdapter(gpaRecyclerAdapter);
-        gpaCourseList.setLayoutManager(new LinearLayoutManager(activity));
+        gpaCourseList.setLayoutManager(new LinearLayoutManager(context));
     }
 
     public void setGpaCalculatorController(GpaCalculatorController gpaCalculatorController) {
@@ -47,6 +48,11 @@ public class GpaCalculatorView {
     @OnClick(R.id.gpa_calculate)
     public void calculate() {
         double gpa = gpaCalculatorController.calculate(gpaRecyclerAdapter.getCourses());
-        gpaValue.setText(activity.getString(R.string.gpa_value_string, gpa));
+        gpaValue.setText(context.getString(R.string.gpa_value_string, gpa));
+    }
+
+    @VisibleForTesting
+    GpaRecyclerAdapter getGpaRecyclerAdapter() {
+        return gpaRecyclerAdapter;
     }
 }

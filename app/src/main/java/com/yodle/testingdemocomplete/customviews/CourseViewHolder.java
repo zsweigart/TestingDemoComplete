@@ -1,4 +1,4 @@
-package com.yodle.testingdemocomplete.view;
+package com.yodle.testingdemocomplete.customviews;
 
 
 import android.support.v7.widget.RecyclerView;

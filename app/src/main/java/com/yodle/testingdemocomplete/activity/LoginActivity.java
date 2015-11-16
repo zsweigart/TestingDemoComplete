@@ -34,7 +34,7 @@ public class LoginActivity extends AppCompatActivity implements LoginController.
         mainApp = (MainApp) getApplication();
         datastore = mainApp.getSharedPrefsDatastore();
 
-        loginView = new LoginView(this, rootView);
+        loginView = new LoginView(this, this, rootView);
         loginController = new LoginController(loginView, this);
         loginView.setLoginController(loginController);
     }

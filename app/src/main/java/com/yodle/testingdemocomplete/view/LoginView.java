@@ -1,12 +1,13 @@
 package com.yodle.testingdemocomplete.view;
 
+import android.app.Activity;
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.yodle.testingdemocomplete.R;
-import com.yodle.testingdemocomplete.activity.LoginActivity;
 import com.yodle.testingdemocomplete.controller.LoginController;
 import com.yodle.testingdemocomplete.customviews.DialogUtil;
 
@@ -15,7 +16,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class LoginView {
-    private LoginActivity activity;
+    private Activity activity;
+    private Context context;
     private View view;
     private LoginController loginController;
 
@@ -28,9 +30,10 @@ public class LoginView {
     @Bind(R.id.login_register)
     Button loginRegisterButton;
 
-    public LoginView(LoginActivity activity, View view) {
-        this.activity = activity;
+    public LoginView(Context context, Activity activity, View view) {
+        this.context = context;
         this.view = view;
+        this.activity = activity;
 
         ButterKnife.bind(this, view);
     }
@@ -55,6 +58,6 @@ public class LoginView {
     }
 
     public void showSignInInvalidEmailOrPassword() {
-        DialogUtil.alertError(activity, activity.getString(R.string.login_invalid_username_or_password));
+        DialogUtil.alertError(activity, context.getString(R.string.login_invalid_username_or_password));
     }
 }
