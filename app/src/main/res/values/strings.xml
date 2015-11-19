@@ -67,6 +67,10 @@
     <string name="gpa_hours">Hours</string>
     <string name="gpa_grade">Grade</string>
     <string name="gpa_add_more_courses">+ Add another course</string>
+    <string name="gpa_thats_amazing">That\'s amazing!</string>
+    <string name="gpa_great_job">Great Job!</string>
+    <string name="gpa_keep_it_up">Keep it up!</string>
+    <string name="gpa_study_harder">Try to study harder</string>
 
     <!-- Dialog -->
     <string name="oops_something_went_wrong">Oops, somthing went wrong</string>

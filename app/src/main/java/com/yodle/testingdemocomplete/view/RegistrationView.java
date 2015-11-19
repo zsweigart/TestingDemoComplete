@@ -92,7 +92,7 @@ public class RegistrationView extends LinearLayout {
         try {
             newStudent.setAge(Integer.parseInt(registerAge.getText().toString()));
         } catch (NumberFormatException ex) {
-            registerAge.setError(context.getString(R.string.register_header));
+            registerAge.setError(context.getString(R.string.register_age_format_error));
             return;
         }
 

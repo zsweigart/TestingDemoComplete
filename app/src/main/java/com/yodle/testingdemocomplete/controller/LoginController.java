@@ -6,6 +6,8 @@ import com.yodle.testingdemocomplete.model.Student;
 import com.yodle.testingdemocomplete.persistence.Datastore;
 import com.yodle.testingdemocomplete.view.LoginView;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Set;
 
 public class LoginController {
@@ -31,12 +33,12 @@ public class LoginController {
         loginView.showSignInInvalidEmailOrPassword();
     }
 
-    public void register() {
-        loginActivityNavigator.openRegistrationActivity();
-    }
-
     public void register(String email) {
-        loginActivityNavigator.openRegistrationActivity(email);
+        if(StringUtils.isEmpty(email)) {
+            loginActivityNavigator.openRegistrationActivity();
+        } else {
+            loginActivityNavigator.openRegistrationActivity(email);
+        }
     }
 
     public interface LoginActivityNavigator {

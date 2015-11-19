@@ -2,6 +2,7 @@ package com.yodle.testingdemocomplete.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.VisibleForTesting;
 import android.support.v7.app.AppCompatActivity;
 
 import com.yodle.testingdemocomplete.MainApp;
@@ -13,7 +14,8 @@ import com.yodle.testingdemocomplete.view.LoginView;
 public class LoginActivity extends AppCompatActivity implements LoginController.LoginActivityNavigator {
     public static final String NEW_REGISTERED_STUDENT = "NEW_REGISTERED_STUDENT";
 
-    private static final int REGISTER_STUDENT = 1;
+    @VisibleForTesting
+    static final int REGISTER_STUDENT = 1;
 
     private LoginView loginView;
     private LoginController loginController;
@@ -31,14 +33,6 @@ public class LoginActivity extends AppCompatActivity implements LoginController.
         datastore = mainApp.getSharedPrefsDatastore();
         loginController = new LoginController(loginView, this);
         loginView.setLoginController(loginController);
-    }
-
-    public LoginView getLoginView() {
-        return loginView;
-    }
-
-    public LoginController getLoginController() {
-        return loginController;
     }
 
     @Override
@@ -70,5 +64,9 @@ public class LoginActivity extends AppCompatActivity implements LoginController.
     @Override
     public Datastore getDatastore() {
         return datastore;
+    }
+
+    void setLoginController(LoginController loginController) {
+        this.loginController = loginController;
     }
 }

@@ -51,11 +51,7 @@ public class LoginView extends LinearLayout {
     @OnClick(R.id.login_register)
     public void register() {
         String loginEmailString = loginEmail.getText().toString();
-        if(TextUtils.isEmpty(loginEmailString)) {
-            loginController.register();
-        } else {
-            loginController.register(loginEmailString);
-        }
+        loginController.register(loginEmailString);
     }
 
     public void setLoginController(LoginController loginController) {

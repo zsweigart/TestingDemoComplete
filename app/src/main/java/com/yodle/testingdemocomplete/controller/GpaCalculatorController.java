@@ -1,10 +1,7 @@
 package com.yodle.testingdemocomplete.controller;
 
 import com.yodle.testingdemocomplete.model.Course;
-import com.yodle.testingdemocomplete.model.Student;
-import com.yodle.testingdemocomplete.persistence.Datastore;
 import com.yodle.testingdemocomplete.view.GpaCalculatorView;
-import com.yodle.testingdemocomplete.view.RegistrationView;
 
 import java.util.List;
 
@@ -27,7 +24,21 @@ public class GpaCalculatorController {
             }
         }
 
-        return numCourseHours == 0 ? 0 : gpa/numCourseHours;
+        gpa = numCourseHours == 0 ? 0 : gpa/numCourseHours;
+        determineGpaMessage(gpa);
+        return gpa;
+    }
+
+    public void determineGpaMessage(double gpa) {
+        if(gpa >= 3.67) {
+            gpaCalculatorView.showAmazingGpaToast();
+        } else if(gpa >= 3.33) {
+            gpaCalculatorView.showGreatGpaToast();
+        } else if(gpa >= 3.00) {
+            gpaCalculatorView.showKeepItUpGpaToast();
+        } else {
+            gpaCalculatorView.showStudyHarderGpaToast();
+        }
     }
 
     public interface GpaCalculatorActivityNavigator {

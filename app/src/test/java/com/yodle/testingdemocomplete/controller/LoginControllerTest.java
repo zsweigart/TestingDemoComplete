@@ -82,7 +82,7 @@ public class LoginControllerTest {
 
     @Test
     public void register_whenNoEmail_callsOpenRegistrationActivity() {
-        loginController.register();
+        loginController.register(null);
 
         verify(loginActivityNavigator).openRegistrationActivity();
     }

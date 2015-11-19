@@ -36,13 +36,6 @@ public class LoginViewTest {
         loginView = new LoginView(RuntimeEnvironment.application, loginActivity);
         loginView.setLoginController(loginController);
         dialogUtil = mock(DialogUtil.class);
-        doAnswer(new Answer() {
-            @Override
-            public Object answer(InvocationOnMock invocation) throws Throwable {
-                return null;
-            }
-        }).when(dialogUtil).alertError(Matchers.<Activity>any(), anyString());
-
         loginView.setDialogUtil(dialogUtil);
     }
 
@@ -71,10 +64,10 @@ public class LoginViewTest {
     }
 
     @Test
-    public void clickingRegisterButton_whenFieldsEmpty_callRegisterWithNoParameters(){
+    public void clickingRegisterButton_whenFieldsEmpty_callRegisterWithEmptyStringParameter(){
         loginView.findViewById(R.id.login_register).performClick();
 
-        verify(loginController).register();
+        verify(loginController).register("");
     }
 
     @Test

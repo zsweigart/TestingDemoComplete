@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.yodle.testingdemocomplete.R;
 import com.yodle.testingdemocomplete.adapter.GpaRecyclerAdapter;
@@ -53,6 +54,22 @@ public class GpaCalculatorView extends LinearLayout {
     public void calculate() {
         double gpa = gpaCalculatorController.calculate(gpaRecyclerAdapter.getCourses());
         gpaValue.setText(context.getString(R.string.gpa_value_string, gpa));
+    }
+
+    public void showAmazingGpaToast() {
+        Toast.makeText(context, context.getString(R.string.gpa_thats_amazing), Toast.LENGTH_SHORT).show();
+    }
+
+    public void showGreatGpaToast() {
+        Toast.makeText(context, context.getString(R.string.gpa_great_job), Toast.LENGTH_SHORT).show();
+    }
+
+    public void showKeepItUpGpaToast() {
+        Toast.makeText(context, context.getString(R.string.gpa_keep_it_up), Toast.LENGTH_SHORT).show();
+    }
+
+    public void showStudyHarderGpaToast() {
+        Toast.makeText(context, context.getString(R.string.gpa_study_harder), Toast.LENGTH_SHORT).show();
     }
 
     @VisibleForTesting

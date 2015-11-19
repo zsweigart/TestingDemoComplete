@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Matchers;
 import org.robolectric.RuntimeEnvironment;
+import org.robolectric.shadows.ShadowToast;
 
 import java.util.List;
 
@@ -21,6 +22,7 @@ import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(CustomRobolectricRunner.class)
 public class GpaCalculatorViewTest {
@@ -47,5 +49,33 @@ public class GpaCalculatorViewTest {
 
         String actualValue = ((TextView)gpaCalculatorView.findViewById(R.id.gpa_value)).getText().toString();
         assertThat(actualValue, equalTo("Your GPA is: 3.500"));
+    }
+
+    @Test
+    public void showAmazingToast_showsAmazingToast() {
+        gpaCalculatorView.showAmazingGpaToast();
+
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo("That's amazing!"));
+    }
+
+    @Test
+    public void showGreatToast_showsGreatToast() {
+        gpaCalculatorView.showGreatGpaToast();
+
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo("Great Job!"));
+    }
+
+    @Test
+    public void showKeepItUpToast_showsKeepItUpToast() {
+        gpaCalculatorView.showKeepItUpGpaToast();
+
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo("Keep it up!"));
+    }
+
+    @Test
+    public void showStudyHarderToast_showsStudyHarderToast() {
+        gpaCalculatorView.showStudyHarderGpaToast();
+
+        assertThat(ShadowToast.getTextOfLatestToast(), equalTo("Try to study harder"));
     }
 }

@@ -79,4 +79,6 @@ public class Student implements Serializable {
     public boolean isValid() {
         return !StringUtils.isEmpty(email) && !StringUtils.isEmpty(password);
     }
+
+
 }
