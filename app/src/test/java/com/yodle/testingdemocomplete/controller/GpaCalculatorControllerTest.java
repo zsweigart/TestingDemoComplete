@@ -81,7 +81,7 @@ public class GpaCalculatorControllerTest {
         gpaCalculatorController.determineGpaMessage(3.33);
         gpaCalculatorController.determineGpaMessage(3.33 + epsilon);
         gpaCalculatorController.determineGpaMessage(3.55);
-        verify(gpaCalculatorView, times(2)).showGreatGpaToast();
+        verify(gpaCalculatorView, times(3)).showGreatGpaToast();
     }
 
     @Test
@@ -89,12 +89,12 @@ public class GpaCalculatorControllerTest {
         gpaCalculatorController.determineGpaMessage(3.00);
         gpaCalculatorController.determineGpaMessage(3.00 + epsilon);
         gpaCalculatorController.determineGpaMessage(3.20);
-        verify(gpaCalculatorView, times(2)).showKeepItUpGpaToast();
+        verify(gpaCalculatorView, times(3)).showKeepItUpGpaToast();
     }
 
     @Test
     public void showMessage_whenStudyHarder_callsStudyHarderViewMethod() {
         gpaCalculatorController.determineGpaMessage(2.00);
-        verify(gpaCalculatorView, times(2)).showStudyHarderGpaToast();
+        verify(gpaCalculatorView, times(1)).showStudyHarderGpaToast();
     }
 }
